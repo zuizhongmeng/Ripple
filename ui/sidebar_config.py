@@ -1,5 +1,5 @@
 import streamlit as st
-from config import DEFAULT_OLLAMA_URL
+from config import DEFAULT_OLLAMA_URL, DEFAULT_LOCAL_MODEL_NAME
 from i18n import SUPPORTED_LANGS
 
 # -------------------------------
@@ -46,7 +46,7 @@ def sidebar_config(i18n):
         )
         st.session_state["local_model"] = st.text_input(
             i18n.t("model", "model_name"),
-            value=st.session_state.get("local_model", "deepseek-r1")
+            value=st.session_state.get("local_model", DEFAULT_LOCAL_MODEL_NAME)
         )
     else:
         # ☁️ OpenAI 模型选择
