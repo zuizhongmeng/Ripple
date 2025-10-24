@@ -1,5 +1,6 @@
 import streamlit as st
 from services.model_service import call_ollama, call_openai_via_relay
+from config import DEFAULT_OLLAMA_URL, DEFAULT_LOCAL_MODEL_NAME
 
 # -------------------------------
 # 🧠 通用模型回复接口
@@ -18,8 +19,8 @@ def reply(prompt: str, stability_override: float = None) -> str:
     stability = stability_override if stability_override is not None else st.session_state.get("stability", 0.7)
 
     if source == "local":
-        model = st.session_state.get("local_model", "deepseek-r1")
-        url = st.session_state.get("ollama_url", "http://localhost:11434/api/generate")
+        model = st.session_state.get("local_model", DEFAULT_LOCAL_MODEL_NAME)
+        url = st.session_state.get("ollama_url", DEFAULT_OLLAMA_URL)
         return call_ollama(prompt, model, url, stability)
     else:
         model = st.session_state.get("openai_model", "gpt-3.5-turbo")
