@@ -6,7 +6,7 @@
 # DEFAULT_OLLAMA_URL = "http://localhost:11434/api/generate"
 
 # 远程 Ollama 服务地址（Tunnelmole 公開URL）
-DEFAULT_OLLAMA_URL = "https://12vqlm-ip-49-98-40-252.tunnelmole.net/api/generate"
+DEFAULT_OLLAMA_URL = "http://byv6jp-ip-49-98-40-252.tunnelmole.net/api/generate"
 
 # 默认使用的本地模型名称
 DEFAULT_LOCAL_MODEL_NAME = "deepseek-r1"
