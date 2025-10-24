@@ -1,11 +1,7 @@
 import streamlit as st
-from config import DEFAULT_OLLAMA_URL, DEFAULT_LOCAL_MODEL_NAME
+from config import DEFAULT_OLLAMA_URL, DEFAULT_LOCAL_MODEL_NAME, OPENAI_MODEL_OPTIONS
 from i18n import SUPPORTED_LANGS
 
-# -------------------------------
-# 🧭 侧边栏设置（语言、模型、稳定度）
-# 注意：此函数由 app.py 外部用 st.sidebar 包裹
-# -------------------------------
 def sidebar_config(i18n):
     # 🌐 语言选择
     lang = st.session_state["lang"]
@@ -49,10 +45,10 @@ def sidebar_config(i18n):
             value=st.session_state.get("local_model", DEFAULT_LOCAL_MODEL_NAME)
         )
     else:
-        # ☁️ OpenAI 模型选择
+        # ☁️ OpenAI 模型选择（从 config.py 读取）
         st.session_state["openai_model"] = st.selectbox(
             i18n.t("model", "openai_model_select"),
-            ["gpt-3.5-turbo", "gpt-4"]
+            OPENAI_MODEL_OPTIONS
         )
 
     # 🌡️ 稳定度调节器

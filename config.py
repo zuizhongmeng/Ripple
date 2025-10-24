@@ -13,3 +13,6 @@ DEFAULT_LOCAL_MODEL_NAME = "deepseek-r1"
 
 # OpenAI 中继服务地址（如使用本地代理）
 DEFAULT_OPENAI_RELAY_URL = "http://localhost:8000/ask"
+
+# OpenAI 可选模型列表
+OPENAI_MODEL_OPTIONS = ["GPT-5", "GPT-4-turbo", "GPT-4", "GPT-3.5-turbo"]
